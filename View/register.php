@@ -12,6 +12,7 @@
 
 <body>
 
+
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-t-50 p-b-90">
@@ -40,14 +41,14 @@
                             </div>
 
                             <div>
-                                <a href="login.php" class="txt1">
-                                    Already have an account?
+                            <a href="<?= BASE_URL . "login"  ?>" class="txt1">
+							    Already have an account?
                                 </a>
                             </div>
                         </div>
 
                         <div class="container-login100-form-btn m-t-17">
-                            <button class="login100-form-btn" method="POST" action="verify.php">
+                            <button class="login100-form-btn">
                                 Register
                             </button>
                         </div>

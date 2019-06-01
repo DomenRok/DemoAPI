@@ -16,8 +16,6 @@
 		if (isset($_SESSION['username'])) {
 			header("location: index.php");
 		}
-
-
 		?>
 
 
@@ -48,7 +46,7 @@
 						</div>
 
 						<div>
-							<a href="<?= BASE_URL . "View/register.php"  ?>" class="txt1">
+							<a href="<?= BASE_URL . "register"  ?>" class="txt1">
 								No account?
 							</a>
 						</div>

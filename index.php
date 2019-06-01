@@ -18,12 +18,16 @@ define("CSS_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "style/");
 
 $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
 
+
 $urls = [
     "" => function () {
         UserController::login();
     },
-    "View/Register.php" => functioN() {
+    "register" => function() {
         UserController::register();
+    },
+    "login" => function() {
+        UserController::login();
     }
 ];
 
@@ -37,6 +41,8 @@ try {
     echo "An error occurred: <pre>$e</pre>";
     // ViewHelper::error404();
 } 
+
+
 ?>
 
 <!DOCTYPE html>
