@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> Login </title>
-    <link rel="stylesheet" href="./style/main.css">
-    <link rel="stylesheet" href="./style/util.css">
+    <link rel="stylesheet" href="<?= CSS_URL . "intro.css" ?>">
+    <link rel="stylesheet" href="<?= CSS_URL . "intro-util.css" ?>">
 </head>
 <body>
 
 		<?php 
 		
-		session_start();
 
 		if (isset($_SESSION['username'])) {
 			header("location: index.php");
@@ -49,7 +48,7 @@
 						</div>
 
 						<div>
-							<a href="register.php" class="txt1">
+							<a href="<?= BASE_URL . "View/register.php"  ?>" class="txt1">
 								No account?
 							</a>
 						</div>
