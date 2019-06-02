@@ -4,6 +4,7 @@
 
 session_start();
 require_once("Controller/UserController.php");
+require_once("Controller/PostController.php");
 
 
 define("BASE_URL", $_SERVER["SCRIPT_NAME"] . "/");
@@ -27,7 +28,7 @@ $urls = [
         UserController::logout();
     },
     "main" => function() {
-        
+        UserController::main();
     }
 ];
 

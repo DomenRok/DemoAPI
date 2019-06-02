@@ -6,17 +6,19 @@ require_once("Model/UserModel.php");
 require_once("Model/PostModel.php");
 
 
+
+
 class UserController {
     public static function login() {
         if (!empty($_SESSION['username'])) {
-            ViewHelper::render("main.php");
+            self::main(PostDB::getAll());
         } 
         elseif (empty($_POST['username']) && empty($_POST['password'])) {
                 ViewHelper::render("View/login.php");
         }
         elseif ( UserDB::validLoginAttempt($_POST['username'], $_POST['password'])) {
                 $_SESSION['username'] = $_POST['username'];
-                self::index();
+                self::main(PostDB::getAll());
         } else {
             ViewHelper::render("View/login.php", [
                 "status" => "Vpisali ste napačno uporabniško ime/geslo."
@@ -44,6 +46,10 @@ class UserController {
     public static function logout() {
         session_destroy();
         ViewHelper::render("View/login.php");
+    }
+
+    public static function main($posts) {
+        ViewHelper::render("main.php", ["posts" => $posts]); /*,["posts" => PostDB::getAll()]); */
     }
 
 }

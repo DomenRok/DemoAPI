@@ -13,11 +13,9 @@
 </head>
 
 <body>
-
-
-
-
-<a href="<?= BASE_URL . "logout"  ?>"> logout</a>
+<?php
+include_once("navbar.php");
+?>
 
     <div class="jumbotron">
         <h1 class="display-4">Hello, world!</h1>
@@ -28,7 +26,7 @@
     </div>
 
 
-<? echo $posts; ?>
+<?php echo ($posts[0]['title'] . " " . $posts[0]['post_content']); ?> 
     
 
 </body>
