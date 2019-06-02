@@ -7,10 +7,10 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#"> Browse Poems <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?= BASE_URL ?>"> Browse Poems <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"> Post your own poem  </a>
+        <a class="nav-link" href="<?= BASE_URL . "submit" ?>"> Post your own poem  </a>
       </li>
 
     </ul>

@@ -29,6 +29,9 @@ $urls = [
     },
     "main" => function() {
         UserController::main();
+    },
+    "submit" => function() {
+        PostController::submitPost();
     }
 ];
 

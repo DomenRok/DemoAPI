@@ -25,8 +25,16 @@ class PostDB {
         return $stmt->fetchAll();
     }
 
+    public static function submitPost($post_content, $title, $Users_user_id) {
+        $db = DBInit::getInstance();
 
-        
+        $statement = $db->prepare("INSERT INTO posts (post_content, title, Users_user_id)
+            VALUES (:post_content, :title, :Users_user_id)");
+        $statement->bindParam(":post_content", $post_content);
+        $statement->bindParam(":title", $title);
+        $statement->bindParam(":Users_user_id", $Users_user_id);
+        $statement->execute();
+    }
 }
 
 
