@@ -3,6 +3,8 @@
 
 require_once("ViewHelper.php");
 require_once("Model/UserModel.php");
+require_once("Model/PostModel.php");
+
 
 class UserController {
     public static function login() {
@@ -21,7 +23,7 @@ class UserController {
             ]);
         }
     }
-    
+
 
     public static function register() {
         
@@ -30,17 +32,18 @@ class UserController {
         } elseif (!isset($_POST['username']) && !isset($_POST['password'])) {
             ViewHelper::render("View/register.php");
         } else {
-            echo var_dump($_POST);
             UserDB::register($_POST['username'], $_POST['password']);
             ViewHelper::render("View/login.php", ["status" => "Account succesfully created"]);
         }
-
-
-
     }
 
     public static function index() {
         ViewHelper::render("main.php");
+    }
+
+    public static function logout() {
+        session_destroy();
+        ViewHelper::render("View/login.php");
     }
 
 }

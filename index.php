@@ -13,7 +13,6 @@ define("CSS_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "style/");
 
 $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
 
-
 $urls = [
     "" => function () {
         UserController::login();
@@ -23,6 +22,12 @@ $urls = [
     },
     "login" => function() {
         UserController::login();
+    },
+    "logout" => function() {
+        UserController::logout();
+    },
+    "main" => function() {
+        
     }
 ];
 
@@ -42,13 +47,16 @@ try {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
