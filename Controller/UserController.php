@@ -1,4 +1,3 @@
-
 <?php
 
 
@@ -9,23 +8,35 @@ class UserController {
     public static function login() {
         if (!empty($_SESSION['username'])) {
             ViewHelper::render("main.php");
-            } else {
-            if (empty($_POST['username']) && empty($_POST['password'])) {
+        } 
+        elseif (empty($_POST['username']) && empty($_POST['password'])) {
                 ViewHelper::render("View/login.php");
-            }
-            elseif ( UserDB::validLoginAttempt($_POST['username'], $_POST['password'])) {
+        }
+        elseif ( UserDB::validLoginAttempt($_POST['username'], $_POST['password'])) {
                 $_SESSION['username'] = $_POST['username'];
-                ViewHelper::render("main.php");
-            } else {
-                ViewHelper::render("View/login.php", [
-                    "error" => "Vpisali ste napačno uporabniško ime/geslo."
-                ]);
-            }
+                self::index();
+        } else {
+            ViewHelper::render("View/login.php", [
+                "status" => "Vpisali ste napačno uporabniško ime/geslo."
+            ]);
         }
     }
+    
 
     public static function register() {
-        ViewHelper::render("View/register.php");
+        
+        if (isset($_POST['username']) && UserDB::userExists($_POST['username'])) {
+            ViewHelper::render("View/register.php", ['status' => "Username is already taken."] );            
+        } elseif (!isset($_POST['username']) && !isset($_POST['password'])) {
+            ViewHelper::render("View/register.php");
+        } else {
+            echo var_dump($_POST);
+            UserDB::register($_POST['username'], $_POST['password']);
+            ViewHelper::render("View/login.php", ["status" => "Account succesfully created"]);
+        }
+
+
+
     }
 
     public static function index() {

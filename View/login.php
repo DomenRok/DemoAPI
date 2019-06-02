@@ -20,7 +20,7 @@
     	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
-				<form class="login100-form validate-form flex-sb flex-w" method="POST" action="<?= BASE_URL . "" ?>">
+				<form class="login100-form validate-form flex-sb flex-w" method="POST" action="<?= BASE_URL . "login" ?>">
 					<span class="login100-form-title p-b-51">
 						Login
 					</span>
@@ -45,8 +45,8 @@
 							</a>
 						</div>
 
-					<?php if (!empty($error)): ?>
-					<p> <?= $error ?>  </p>
+					<?php if (!empty($status)): ?>
+					<p> <?= $status ?>  </p>
 					<?php endif; ?>
 					
 					</div>

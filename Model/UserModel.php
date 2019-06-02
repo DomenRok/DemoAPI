@@ -21,9 +21,20 @@ class UserDB {
     public static function register($username, $password) {
         $dbh = DBInit::getInstance();
 
-        $stmt = $dbh -> preapare('Insert into Users(username, password) values (?, ?)');
+        $stmt = $dbh -> prepare('Insert into Users(username, password) values (?, ?)');
         $stmt->bindParam(1, $username, PDO::PARAM_STR);
         $stmt->bindParam(2, $password, PDO::PARAM_STR);
         $stmt->execute();
+    }
+
+    public static function userExists($username) {
+        $dbh = DBInit::getInstance();
+
+        $stmt = $dbh->prepare('Select count(username) from users where username = ?');
+        $stmt->bindParam(1, $username, PDO::PARAM_STR);
+        $stmt->execute();
+        
+        return $stmt->fetchColumn(0) == 1;
+        
     }
 }
