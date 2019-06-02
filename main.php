@@ -26,7 +26,11 @@ include_once("navbar.php");
     </div>
 
 
-<?php echo ($posts[0]['title'] . " " . $posts[0]['post_content']); ?> 
+<?php echo ($posts[0]['title'] . " " . $posts[0]['content']); 
+echo "<pre>";
+echo var_dump($posts);
+echo "</pre>";
+?> 
     
 
 </body>
