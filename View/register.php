@@ -22,23 +22,25 @@
                     </span>
 
 
-                    <form action="">
+                    <form>
                         <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
-                            <input class="input100" type="text" name="username" placeholder="new username">
+                            <input class="input100" type="text" name="username" placeholder="new username" required>
                             <span class="focus-input100"></span>
                         </div>
 
 
                         <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
-                            <input class="input100" type="password" name="pass" placeholder="new username">
+                            <input class="input100" type="password" name="pass" placeholder="new password"required>
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
+                            <input class="input100" type="password" name="pass" placeholder="confirm password" required>
                             <span class="focus-input100"></span>
                         </div>
 
                         <div class="flex-sb-m w-full p-t-3 p-b-24">
-                            <div class="contact100-form-checkbox">
-                                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-
-                            </div>
+                            
 
                             <div>
                             <a href="<?= BASE_URL . "login"  ?>" class="txt1">
