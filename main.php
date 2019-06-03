@@ -21,7 +21,6 @@ include_once("navbar.php");
         <h1 class="display-4"> Browse songs!</h1>
         <p class="lead">You can upload songs, browse them & rate them.</p>
         <hr class="my-4">
-        <p> Yeet </p>
     </div>
 
 
@@ -31,19 +30,19 @@ include_once("navbar.php");
         <div class="row">
             <?php foreach($posts as $post): ?>
             <div class="col-auto mb-3">
-                <div class="card" style="width: 18rem; height: 18rem;">
+                <div class="card" style="width: 18rem; height: 12rem;">
                     <div class="card-body">
                         <h5 class="card-title"> <?= $post['title'] ?> </h5>
                         <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                         <p class="card-text" style="
                         display:block;width:200px;text-overflow:ellipsis;;overflow:hidden;max-height:200px;
                         display: -webkit-box;
-                        -webkit-line-clamp: 4;
+                        -webkit-line-clamp: 2;
                         -webkit-box-orient: vertical;
                         }"> 
                         <?= $post['content'] ?> </p>
-                        <a href="<?= BASE_URL . "post?id=" . $post['id'] ?>" class="card-link"> <?= $post['id'] ?> </a>
-                        <a href="#" class="card-link">Another link</a>
+                        <a href="<?= BASE_URL . "post?id=" . $post['id'] ?>" class="card-link">  Full song  </a>
+                        <a href="#" class="card-link"> plc </a>
                     </div>
                 </div>
             </div>

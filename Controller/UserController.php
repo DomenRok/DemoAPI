@@ -11,7 +11,7 @@ require_once("Model/PostModel.php");
 class UserController {
     public static function login() {
         if (!empty($_SESSION['username'])) {
-            self::main(PostDB::getAll());
+            self::main();
         } 
         elseif (empty($_POST['username']) || empty($_POST['password'])) {
                 ViewHelper::render("View/login.php");
@@ -48,8 +48,8 @@ class UserController {
         ViewHelper::render("View/login.php");
     }
 
-    public static function main($posts) {
-        ViewHelper::render("main.php", ["posts" => $posts]); /*,["posts" => PostDB::getAll()]); */
+    public static function main() {
+        ViewHelper::render("main.php", ["posts" => PostDB::getAll()]); /*,["posts" => PostDB::getAll()]); */
     }
 
 }

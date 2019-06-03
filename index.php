@@ -5,10 +5,13 @@
 session_start();
 require_once("Controller/UserController.php");
 require_once("Controller/PostController.php");
+require_once("Controller/RatingController.php");
+require_once("Controller/CommentController.php");
 
 
 define("BASE_URL", $_SERVER["SCRIPT_NAME"] . "/");
 define("CSS_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "style/");
+define("JS_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "javascript/");
 //define("IMAGES_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "static/images/");
 //define("CSS_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "static/css/");
 
@@ -39,6 +42,9 @@ $urls = [
     },
     "post" => function() {
         PostController::getPost();
+    },
+    "submit-comment" => function() {
+        CommentController::submitComment(); 
     }
 
 ];
