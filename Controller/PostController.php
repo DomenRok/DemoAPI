@@ -2,6 +2,7 @@
 
 require_once("ViewHelper.php");
 require_once("Model/PostModel.php");
+require_once("Model/CommentModel.php");
 
 
 
@@ -17,7 +18,10 @@ class PostController {
         }
     }
     public static function getPost() {
-        ViewHelper::render("View/browse-post.php", ["post_id" => $_GET['id'], "post" => PostDB::getPostById($_GET['id'])]);
+        ViewHelper::render("View/browse-post.php", ["post_id" => $_GET['id'],
+                                                "post" => PostDB::getPostById($_GET['id']),
+                                                "comments" => CommentDB::getCommentsForPostID($_GET['id'])
+                                                ]);
     }
 }
 

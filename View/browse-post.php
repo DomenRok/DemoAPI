@@ -233,22 +233,34 @@ body {
 
 
 
-
-   </ul>
-
-   <ul class="user_comment">
-
-     <!-- current #{user} avatar -->
-     <div class="user_avatar">
-     user 1
-     </div><!-- the comment body --><div class="comment_body">
-       <p> Ass is nice </p>
-     </div>
-
+    
+    </ul>
+    <ul class="user_comment">
+      <!-- current #{user} avatar -->
+      <div class="user_avatar">
+      user 1
+      </div><div class="comment_body">
+        <p> Ass is nice </p>
+      </div>
+    </ul>
 
 
 
-   </ul>
+
+    <?php foreach($comments as $comment): ?>
+      </ul>
+      <ul class="user_comment">
+
+        <div class="user_avatar">
+        user 1
+        </div><div class="comment_body">
+          <p><?= $comment['message']  ?></p>
+        </div>
+      </ul>
+    <?php endforeach; ?>
+    
+
+    
 
  </div>
 

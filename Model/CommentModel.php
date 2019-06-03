@@ -23,7 +23,18 @@ class CommentDB {
         $statement->execute();
 
         return $statement->fetchAll();
-    }    
+    }
+
+    public static function getCommentsForPostID($post_id) {
+        $db = DBInit::getInstance();
+
+        $statement = $db->prepare("SELECT id, message, user_id, post_id FROM comment  WHERE post_id = ?");
+        $statement->bindParam(1, $post_id, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+    
+    
 }
 
 

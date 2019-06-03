@@ -14,6 +14,10 @@ class CommentController {
         $user_id = UserDB::getUserId($_SESSION['username']);
         $post_id = $_POST['post_id'];
         CommentDB::addComment($post_id, $user_id, $_POST['comment']);
+        ViewHelper::render("View/browse-post.php", [
+            "post_id" => $post_id,
+            "post" => PostDB::getPostById($post_id),
+            "comments" => CommentDB::getCommentsForPostID($post_id)]);
     }
 }
 
