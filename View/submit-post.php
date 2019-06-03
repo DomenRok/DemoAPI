@@ -15,18 +15,26 @@
     <title> Submit a poem</title>
 </head>
 <body>
-<form action="<?= BASE_URL . "" ?>" method="POST">
+<form action="<?= BASE_URL . "submit" ?>" method="POST">
   <div class="form-group">
     <label for="title"> Title </label>
-    <input type="text" class="form-control" id="title" placeholder="A song of fire and flame">
+    <input type="text" class="form-control" id="title" name="title" placeholder="A song of fire and flame">
   </div>
 
   <div class="form-group">
     <label for="poem"> Poem </label>
-    <textarea class="form-control" id="poem" value="poem">
+    <textarea class="form-control" id="content" name="content" value="poem">
     </textarea>
   </div>
+
+  <?php if (!empty($status)): ?>
+    <p class="text-primary"><?= $status ?></p>
+  <?php endif; ?>
+
   <button class="btn btn-primary" type="submit"> Submit </button>
+
+
+
 </form>
 
 </form>

@@ -13,7 +13,7 @@ class UserController {
         if (!empty($_SESSION['username'])) {
             self::main(PostDB::getAll());
         } 
-        elseif (empty($_POST['username']) && empty($_POST['password'])) {
+        elseif (empty($_POST['username']) || empty($_POST['password'])) {
                 ViewHelper::render("View/login.php");
         }
         elseif ( UserDB::validLoginAttempt($_POST['username'], $_POST['password'])) {

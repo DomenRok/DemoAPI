@@ -35,6 +35,15 @@ class UserDB {
         $stmt->execute();
         
         return $stmt->fetchColumn(0) == 1;
+    }
+
+    public static function getUserId($username) {
+        $dbh = DBInit::getInstance();
+
+        $stmt = $dbh->prepare('Select id from user where username = ?');
+        $stmt->bindParam(1, $username, PDO::PARAM_STR);
+        $stmt->execute();
         
+        return $stmt->fetchColumn(0);
     }
 }

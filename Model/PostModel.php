@@ -13,12 +13,12 @@ class PostDB {
         return $statement->fetchAll();
     }
 
-    public static function getPostByUser($id) {
+    public static function getPostById($id) {
         $db = DBInit::getInstance();
 
         $stmt = $db->prepare("SELECT id, content, title, user_id
                                     FROM post
-                                    where user_id = ?");
+                                    where id = ?");
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
 
@@ -34,6 +34,17 @@ class PostDB {
         $statement->bindParam(":title", $title);
         $statement->bindParam(":user_id", $user_id);
         $statement->execute();
+    }
+
+    public static function getAuthorOfPost($post_id) {
+        $db = DBInit::getInstance();
+
+        $stmt = $db->prepare("SELECT user_id FROM post WHERE id = ?");
+        $stmt->bindParam(1, $post_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchColumn();
+    
     }
 }
 

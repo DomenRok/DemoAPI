@@ -14,6 +14,10 @@ define("CSS_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "style/");
 
 $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
 
+function isUserLoggedIn() {
+    return isset($_SESSION['id']) && !empty($_S);
+}
+
 $urls = [
     "" => function () {
         UserController::login();
@@ -32,6 +36,9 @@ $urls = [
     },
     "submit" => function() {
         PostController::submitPost();
+    },
+    "post" => function() {
+        PostController::getPost();
     }
 
 ];
