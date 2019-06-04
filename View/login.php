@@ -27,7 +27,7 @@
 
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" placeholder="Username" required>
+						<input class="input100" type="text" name="username" autofocus  placeholder="Username" required>
 						<span class="focus-input100"></span>
 					</div>
 					

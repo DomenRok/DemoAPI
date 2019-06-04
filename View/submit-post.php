@@ -15,27 +15,28 @@
     <title> Submit a poem</title>
 </head>
 <body>
-<form action="<?= BASE_URL . "submit" ?>" method="POST">
-  <div class="form-group">
-    <label for="title"> Title </label>
-    <input type="text" class="form-control" id="title" name="title" placeholder="A song of fire and flame" pattern=".{5,}" pattern title="Napiš kej več k to no">
-  </div>
 
-  <div class="form-group">
-    <label for="poem"> Poem </label>
-    <textarea class="form-control" id="content" name="content" value="poem" pattern=".{5,}" pattern title="Napiš kej več k to no">
-    </textarea>
-  </div>
-
-  <?php if (!empty($status)): ?>
-    <p class="text-primary"><?= $status ?></p>
-  <?php endif; ?>
-
-  <button class="btn btn-primary" type="submit"> Submit </button>
-
-
-
-</form>
+<div class="container">
+  
+  <form action="<?= BASE_URL . "submit" ?>" method="POST">
+    <div class="form-group">
+      <label for="title"> Title </label>
+      <input type="text" class="form-control" id="title" name="title" placeholder="A song of fire and flame" pattern=".{5,}" pattern title="Napiš kej več k to no" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="poem"> Poem </label>
+      <textarea style="height:400px;" class="form-control" id="content" name="content" pattern=".{5,}" pattern title="Napiš kej več k to no" required>
+      </textarea>
+    </div>
+  
+    <?php if (!empty($status)): ?>
+      <p class="text-primary"><?= $status ?></p>
+    <?php endif; ?>
+  
+    <button class="btn btn-primary" type="submit"> Submit </button>
+  </form>
+</div>
 
 </form>
 </body>

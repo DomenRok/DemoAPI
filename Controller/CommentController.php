@@ -19,6 +19,10 @@ class CommentController {
             "post" => PostDB::getPostById($post_id),
             "comments" => CommentDB::getCommentsForPostID($post_id)]);
     }
+
+    public static function editComment() {
+        
+    }
 }
 
 
