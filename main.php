@@ -41,8 +41,8 @@ include_once("navbar.php");
                         -webkit-box-orient: vertical;
                         }"> 
                         <?= $post['content'] ?> </p>
-                        <a href="<?= BASE_URL . "post?id=" . $post['id'] ?>" class="card-link">  Full song  </a>
-                        <a href="#" class="card-link"> plc </a>
+                        <a href="<?= BASE_URL . "post?id=" . $post['id'] ?>" class="card-link"> View Comments  </a>
+                        <a href="#" class="card-link"></a>
                     </div>
                 </div>
             </div>
