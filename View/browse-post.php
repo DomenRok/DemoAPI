@@ -235,7 +235,7 @@ body {
       <ul class="user_comment">
 
         <div class="user_avatar">
-        <?= $comment['user_id'] ?>
+        <?= $comment['username'] ?>
         </div><div class="comment_body">
           <p><?= $comment['message']  ?></p>
         </div>

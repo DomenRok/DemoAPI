@@ -9,7 +9,6 @@ require_once("Model/CommentModel.php");
 class PostController {
     public static function submitPost() {
         if (isset($_POST) && !empty($_POST)) {
-            echo var_dump($_POST);
             $user_id = UserDB::getUserId($_SESSION['username']);
             PostDB::submitPost($_POST['content'], $_POST['title'], $user_id);
             ViewHelper::render("View/submit-post.php", ["status" => "Sucessfully submited Post"]);

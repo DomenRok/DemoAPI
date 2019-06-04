@@ -28,11 +28,15 @@ class CommentDB {
     public static function getCommentsForPostID($post_id) {
         $db = DBInit::getInstance();
 
-        $statement = $db->prepare("SELECT id, message, user_id, post_id FROM comment  WHERE post_id = ?");
+        $statement = $db->prepare("SELECT comment.id, comment.message, comment.user_id, comment.post_id, user.username 
+                                    FROM comment  JOIN user on comment.user_id = user.id
+                                    where post_id = ?");
         $statement->bindParam(1, $post_id, PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetchAll();
     }
+
+
     
     
 }
