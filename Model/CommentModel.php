@@ -36,6 +36,15 @@ class CommentDB {
         return $statement->fetchAll();
     }
 
+    public static function updateComment($new_comment, $comment_id) {
+        $db = DBInit::getInstance();
+
+        $statement = $db->prepare("UPDATE comment SET message = ? WHERE id = ?");    
+        $statement->bindParam(1, $new_comment, PDO::PARAM_INT);
+        $statement->bindParam(2, $comment_id, PDO::PARAM_INT);
+        $statement->execute();
+    }
+
 
     
     

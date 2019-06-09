@@ -20,8 +20,9 @@ class CommentController {
             "comments" => CommentDB::getCommentsForPostID($post_id)]);
     }
 
-    public static function editComment() {
-        
+    public static function editComment($comment_id, $new_comment) {
+    //    CommentDB::editComment($comment_id, $new_comment);
+     //   ViewHelper::render("View/browse-post.php");
     }
 }
 
